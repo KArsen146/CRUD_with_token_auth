@@ -1,4 +1,4 @@
-### CRUD for Users with token authentication
+# CRUD for Users with token authentication
 
 ## Установка и запуск проекта(для MacOs)
 
