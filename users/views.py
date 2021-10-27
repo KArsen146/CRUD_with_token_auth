@@ -9,6 +9,15 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class UserTokenViewSet(ModelViewSet):
+    class IsAuthenticatedWithoutCreate(IsAuthenticated):
+
+        def has_permission(self, request, view):
+            if request.method == 'POST':
+                return True
+            super().has_permission(request, view)
+
     serializer_class = UserTokenSerializer
     queryset = UserToken.objects.all()
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticatedWithoutCreate, )
+
+
